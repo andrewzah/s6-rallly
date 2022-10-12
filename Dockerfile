@@ -13,7 +13,10 @@ RUN set -euxo pipefail \
   && yarn --frozen-lockfile \
   && yarn build
 
-RUN rm -rf node_modules
+RUN rm -rf node_modules \
+  && yarn install \
+    --frozen-lockfile \
+    --production
 
 FROM andrewzah/base-alpine:3.15
 
