@@ -1,0 +1,5 @@
+#!/command/with-contenv sh
+
+set -e
+
+chown -R abc:abc /usr/src/app/rallly

@@ -1,0 +1,11 @@
+#!/command/with-contenv sh
+
+set -e
+
+cd /usr/src/app/rallly
+export HOME=/usr/src/app/rallly
+
+yarn prisma migrate deploy --schema prisma/schema.prisma
+
+exec s6-setuidgid abc \
+  yarn start
